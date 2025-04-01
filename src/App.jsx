@@ -1,9 +1,11 @@
 import "./index.css";
 import Navbar from "./components/Navbar";
 import Login from "./pages/auth/Login";
+import Home from "./components/Home";
 import ISO from "./assets/iso.png";
 import CMMI from "./assets/cmmi.png";
 import ISONUMBER from "./assets/iso2700.png";
+import { createBrowserRouter } from "react-router-dom";
 const App = () => {
   return (
     <div className="container flex flex-col min-h-screen bg-gradient-to-b from-[#ffffff] to-[#585FAA]">
@@ -56,3 +58,21 @@ const App = () => {
 };
 
 export default App;
+
+export const appRouter = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+    children: [
+      {
+        path: "/Login",
+        element: <Login />,
+      },
+    ],
+  },
+
+  {
+    path: "/home",
+    element: <Home />,
+  },
+]);

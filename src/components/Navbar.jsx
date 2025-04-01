@@ -1,6 +1,12 @@
 import logo from "../assets/logo.png";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  const navigate = useNavigate();
+
+  const handleLogin = () => {
+    navigate("/home");
+  };
   return (
     <>
       <header className="h-16 w-full bg-[#ffffff] shadow-lg shadow-black/50 rounded-[24px]">
@@ -9,7 +15,10 @@ const Navbar = () => {
             src={logo}
             className="h-[25px] w-[50px] md:h-[30px]  md:w-[80px] cursor-pointer"
           />
-          <button className="pl-3 pr-3 pt-0.5 pb-0.5  text-white bg-[#5e70ca] rounded-xl">
+          <button
+            onClick={handleLogin}
+            className="pl-3 pr-3 pt-0.5 pb-0.5  text-white bg-[#5e70ca] rounded-xl"
+          >
             Login
           </button>
         </nav>
